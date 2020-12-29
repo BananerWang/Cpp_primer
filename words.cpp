@@ -30,3 +30,25 @@ vector<string> split(const string& s)
     }
     return ret;
 }
+string::size_type width(const vector<string>& v)
+{
+    typedef string::size_type string_size;
+    string_size max_size = 0;
+    for(vector<string>::size_type i = 0 ; i != v.size();  i++)
+    {
+        max_size = max(max_size, v[i].size());
+    }
+    return max_size;
+}
+vector<string> frame(const vector<string>& v)
+{
+    vector<string> ret_frame;
+    string::size_type max_length = width(v);
+    string border(max_length + 4, '*');
+    ret_frame.push_back(border);
+    for (vector<string>::size_type i = 0; i != v.size() ; ++i) {
+        ret_frame.push_back("* " + v[i] + string(max_length - v[i].size(), ' ') + " *");
+    }
+    ret_frame.push_back(border);
+    return ret_frame;
+}
