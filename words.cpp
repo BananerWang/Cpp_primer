@@ -52,3 +52,19 @@ vector<string> frame(const vector<string>& v)
     ret_frame.push_back(border);
     return ret_frame;
 }
+
+bool equal(const std::string& s)
+{
+    return equal(s.begin(), s.end(), s.rbegin());
+}
+
+vector<string> find_urls(const string& s)
+{
+    vector<string> ret;
+
+
+
+
+    return ret;
+
+}

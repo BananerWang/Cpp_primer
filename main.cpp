@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include "words.h"
 
 using std::cin; using std::cout; using std::endl;
