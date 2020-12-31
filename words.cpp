@@ -9,7 +9,7 @@
 using std::vector; using std::string;
 using std::max; using std::transform;
 using std::search; using std::find;
-
+using std::find_if;
 
 vector<string> split(const string& s)
 {
@@ -70,7 +70,7 @@ bool not_url_char(char c)
 
 string::const_iterator url_end(string::const_iterator b, string::const_iterator e)
 {
-    return find(b, e, not_url_char);
+    return find_if(b, e, not_url_char);
 }
 
 string::const_iterator url_beg(string::const_iterator b, string::const_iterator e)
@@ -83,10 +83,11 @@ string::const_iterator url_beg(string::const_iterator b, string::const_iterator 
             iter beg = i;
             while (beg != b && isalpha(beg[-1]))
                 beg--;
-            if (beg != i && not_url_char(i[sep.size()])) {
+            if (beg != i && !not_url_char(i[sep.size()])) {
                 return beg;
             }
         }
+        i += sep.size();
     }
     return e;
 }

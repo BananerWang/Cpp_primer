@@ -11,10 +11,15 @@ int main() {
 
 
 
-    vector<string> v = {"I have a apple", "you have a pen", "apple pen"};
-    vector<string> frame_v = frame(v);
-    for (vector<string>::size_type i = 0; i != frame_v.size() ; ++i) {
-        cout<<frame_v[i]<<endl;
+    string s;
+    while (getline(cin, s)) {
+
+       vector<string> string_vector =  find_urls(s);
+        /*for (auto it : *string_vector.begin()) {
+            cout<<it<<endl;
+        }*/
+        for(const auto& c : string_vector)
+            cout<<c<<endl;
     }
 
     return 0;
