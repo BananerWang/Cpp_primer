@@ -5,11 +5,14 @@
 #include <algorithm>
 #include <functional>
 #include <cctype>
-
+#include <exception>
+#include "numbers.h"
 using std::vector; using std::string;
 using std::max; using std::transform;
 using std::search; using std::find;
-using std::find_if;
+using std::find_if; using std::map;
+using std::istream; using std::ostream;
+using std::getline; using std::logic_error;
 
 vector<string> split(const string& s)
 {
@@ -108,7 +111,57 @@ vector<string> find_urls(const string& s)
            b = end;
         }
     }
-
     return ret;
-
 }
+
+map<std::string, std::vector<int>> xref(istream& in, vector<string> find_words(const string&))
+{
+    string line;
+    int line_num = 0;
+    map<string, vector<int>> ret;
+    while (getline(in, line)) {
+        line_num += 1;
+        vector<string> words = find_words(line);
+        for (const auto & word : words) {
+            ret[word].push_back(line_num);
+        }
+    }
+    return ret;
+}
+
+bool bracket(const std::string& s){
+    return s.size() > 1 && s[0] == '<' && s[s.size() - 1] == '>';
+}
+
+Grammar read_grammar(istream& in)
+{
+    Grammar ret;
+    string line;
+    while (getline(in, line)) {
+        vector<string> entry = split(line);
+        ret[entry[0]].push_back(Rule(entry.begin() + 1, entry.end());
+    }
+    return ret;
+}
+
+void gen_aux(const Grammar& g, const std::string& word, std::vector<std::string>& ret)
+{
+    if (!bracket(word)) {
+        ret.push_back(word);
+    } else {
+
+        auto it = g.find(word);
+        if (it == g.end()) {
+            throw logic_error("empty value");
+        }
+        const Rule_collection& ruleCollection = it->second;
+        const Rule& rule = ruleCollection[nrand(ruleCollection.size())];
+        for (auto r : rule) {
+            gen_aux(g, r, ret);
+        }
+
+
+
+    }
+}
+

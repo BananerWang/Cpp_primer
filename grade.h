@@ -7,10 +7,13 @@
 
 #include <vector>
 #include "Student_info.h"
+#include <stdexcept>
 
-double grade(double, double, double);
+double grade(double midterm, double final, double avg_hw);
 double grade(double, double, const std::vector<double>&);
 double grade(const Student_info&);
+
+double median(std::vector<double>& hw);
 
 
 
