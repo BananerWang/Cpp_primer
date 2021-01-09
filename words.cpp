@@ -156,12 +156,11 @@ void gen_aux(const Grammar& g, const std::string& word, std::vector<std::string>
         }
         const Rule_collection& ruleCollection = it->second;
         const Rule& rule = ruleCollection[nrand(ruleCollection.size())];
-        for (auto r : rule) {
+        for (const auto& r : rule) {
             gen_aux(g, r, ret);
         }
-
-
-
     }
 }
+
+
 
