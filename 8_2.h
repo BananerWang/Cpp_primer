@@ -34,5 +34,27 @@ public:
         }
         return e1;
     }
+    // Input iterators
+    template<class In, class X> static In find(In b, In e, const X& t)
+    {
+        while (b != e)
+        {
+            if (*b == t)
+                return b;
+            b++;
+        }
+        return b;
+
+    }
+    // Input iterators
+    template <class In, class P> static In find_if(In b, In e, P p)
+    {
+        while (b != e && *b != p(*b))
+        {
+            b++;
+        }
+        return b;
+    }
+
 };
 #endif //CPP_PRIMER_8_2_H
