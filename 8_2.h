@@ -56,5 +56,17 @@ public:
         return b;
     }
 
+    template<class In, class Out> static Out copy(In b, In e, Out d)
+    {
+        while (b != e)
+            *d++ = *b++;
+        return d;
+    }
+
+    template<class In, class Out, class X> static Out remove_copy(In b, In e, Out d, const X& t)
+    {
+
+    }
+
 };
 #endif //CPP_PRIMER_8_2_H
