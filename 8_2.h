@@ -95,7 +95,7 @@ public:
         }
         return b;
     }
-    template <class Fw, class P> static Fw transform(Fw, b, Fw e, P p)
+    template <class Fw, class P> static Fw transform(Fw b, Fw e, P p)
     {
         Fw b_out = b;
         while (b != e)

@@ -139,7 +139,7 @@ Grammar read_grammar(istream& in)
     string line;
     while (getline(in, line)) {
         vector<string> entry = split(line);
-        ret[entry[0]].push_back(Rule(entry.begin() + 1, entry.end());
+        ret[entry[0]].push_back(Rule(entry.begin() + 1, entry.end()));
     }
     return ret;
 }
