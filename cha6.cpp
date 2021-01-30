@@ -7,6 +7,7 @@ using std::vector;
 #include <string>
 using std::string;
 #include <algorithm>
+#include <iterator>
 using std::back_inserter;
 using std::transform;
 

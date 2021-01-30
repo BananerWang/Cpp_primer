@@ -12,12 +12,12 @@ class Student_info {
 
 private:
     std::string n;
-    double midterm, final;
+    double midterm{}, final{};
     std::vector<double> homework;
 
 public:
     Student_info();
-    Student_info(std::istream&);
+    explicit Student_info(std::istream& is);
 
     std::istream& read(std::istream&);
     double grade() const;

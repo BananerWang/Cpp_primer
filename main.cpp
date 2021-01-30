@@ -26,13 +26,9 @@ template<class In> string print_vec(In b, In e)
 }
 int main() {
 
-    vector<int> vec1 = {10, 25, 35, 40, 50};
-    auto it = algorithms::find(vec1.begin(), vec1.end(), 40);
-    cout<<*++it<<endl;
 
-    vector<int> vec6;
-    algorithms::copy(vec1.begin(), vec1.end(), back_inserter(vec6));
-    cout<<print_vec(vec6.begin(), vec6.end());
+
+    return 0;
 
 
 }

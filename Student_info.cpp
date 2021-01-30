@@ -5,6 +5,8 @@
 #include "Student_info.h"
 #include "grade.h"
 #include <sstream>
+#include <algorithm>
+#include <numeric>
 using std::vector; using std::string;
 using std::domain_error; using std::transform;
 using std::back_inserter; using std::stringstream;
